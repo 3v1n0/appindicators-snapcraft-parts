@@ -1,0 +1,123 @@
+name: appindicators-parts
+version: 0.5
+confinement: strict
+description: |
+  Parts to show app-indicators for gtk2, gtk3, qt4 and qt5.
+  .
+  Usage:
+    1. add "after: [indicator-<technology>]" to your part:
+       - gtk2, gtk3, qt4 and qt5 corresponds to their respective toolkit.
+         main dependencies and default choices.
+    2. add 'unity7' plug to your application
+
+parts:
+  indicator-qt4:
+    source: lp:~3v1n0/sni-qt/icons-user-cache-on-snap
+    plugin: cmake
+    build-packages:
+      - libdbusmenu-qt-dev
+      - libqt4-dev
+      - pkg-config
+      - qt4-qmake
+
+
+  indicator-qt5:
+    source: lp:~3v1n0/appmenu-qt5/icons-user-cache-on-snap
+    plugin: qmake
+    qt-version: qt5
+    build-packages:
+      - libdbusmenu-qt5-dev
+      - libfontconfig1-dev
+      - libfreetype6-dev
+      - libgles2-mesa-dev
+      - libglib2.0-dev
+      - libgtk2.0-dev
+      - libinput-dev
+      - libmtdev-dev
+      - libqt5x11extras5-dev
+      - libudev-dev
+      - libxrender-dev
+      - pkg-config
+      - qtbase5-dev
+      - qtbase5-private-dev
+
+
+  indicator-gtk2:
+    plugin: autotools
+    source: lp:~3v1n0/libappindicator/incons-paths-on-snap
+    build-packages:
+      - at-spi2-core
+      - gobject-introspection
+      - intltool
+      - libdbus-glib-1-dev
+      - libdbusmenu-glib-dev
+      - libdbusmenu-gtk-dev
+      - libgirepository1.0-dev
+      - libglib2.0-dev
+      - libgtk2.0-dev
+      - libindicator-dev
+      - python-all-dev
+      - python-gtk2-dev
+      - valac
+
+      # #Mono support
+      # - cli-common-dev # [!arm64 !ppc64el]
+      # - libnunit-cil-dev # [!arm64 !ppc64el]
+      # - mono-devel # [!arm64 !ppc64el]
+      # - gtk-sharp2-gapi # [!arm64 !ppc64el]
+      # - libgtk2.0-cil-dev # [!arm64 !ppc64el]
+
+    configflags:
+      - --prefix=/usr
+      - --with-gtk=2
+      - --enable-gtk-doc=no
+      - --enable-gtk-doc-html=no
+      - --disable-tests
+      - --disable-mono-test
+
+    snap:
+      - ./**/lib*.so.*
+      - ./**/*.typelib
+      - ./**/python2.7/**/appindicator
+      - ./**/lib/cli
+      - ./**/lib/mono
+
+
+  indicator-gtk3:
+    source: lp:~3v1n0/libappindicator/incons-paths-on-snap
+    plugin: autotools
+    build-packages:
+      - at-spi2-core
+      - gobject-introspection
+      - intltool
+      - libdbus-glib-1-dev
+      - libdbusmenu-glib-dev
+      - libdbusmenu-gtk3-dev
+      - libgirepository1.0-dev
+      - libglib2.0-dev
+      - libgtk-3-dev
+      - libindicator3-dev
+      - python-all-dev
+      - python-gtk2-dev
+      - valac
+
+      # #Mono support
+      # - cli-common-dev # [!arm64 !ppc64el]
+      # - libnunit-cil-dev # [!arm64 !ppc64el]
+      # - mono-devel # [!arm64 !ppc64el]
+      # - gtk-sharp2-gapi # [!arm64 !ppc64el]
+      # - libgtk2.0-cil-dev # [!arm64 !ppc64el]
+
+    configflags:
+      - --prefix=/usr
+      - --with-gtk=3
+      - --enable-gtk-doc=no
+      - --enable-gtk-doc-html=no
+      - --disable-tests
+      - --disable-mono-test
+
+    snap:
+      - ./**/lib*.so.*
+      - ./**/*.typelib
+      - ./**/lib/cli
+      - ./**/lib/mono
