@@ -89,6 +89,7 @@ parts:
     plugin: autotools
     build-packages:
       - at-spi2-core
+      - gnome-common
       - gobject-introspection
       - intltool
       - libdbus-glib-1-dev
