@@ -12,7 +12,7 @@ description: |
 
 parts:
   indicator-qt4:
-    source: lp:sni-qt
+    source: lp:~3v1n0/sni-qt/use-xdg-runtime-dir
     plugin: cmake
     build-packages:
       - libdbusmenu-qt-dev
