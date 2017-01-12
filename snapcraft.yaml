@@ -22,7 +22,7 @@ parts:
 
 
   indicator-qt5:
-    source: lp:appmenu-qt5
+    source: lp:~3v1n0/appmenu-qt5/use-xdg-runtime-dir
     plugin: qmake
     qt-version: qt5
     build-packages:
