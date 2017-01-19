@@ -49,6 +49,7 @@ parts:
       - at-spi2-core
       - gnome-common
       - gobject-introspection
+      - gtk-doc-tools
       - intltool
       - libdbus-glib-1-dev
       - libdbusmenu-glib-dev
@@ -91,6 +92,7 @@ parts:
       - at-spi2-core
       - gnome-common
       - gobject-introspection
+      - gtk-doc-tools
       - intltool
       - libdbus-glib-1-dev
       - libdbusmenu-glib-dev
