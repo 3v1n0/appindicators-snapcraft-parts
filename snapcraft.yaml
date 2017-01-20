@@ -77,7 +77,7 @@ parts:
       - --disable-tests
       - --disable-mono-test
 
-    snap:
+    prime:
       - ./**/lib*.so.*
       - ./**/*.typelib
       - ./**/python2.7/**/appindicator
@@ -120,7 +120,7 @@ parts:
       - --disable-tests
       - --disable-mono-test
 
-    snap:
+    prime:
       - ./**/lib*.so.*
       - ./**/*.typelib
       - ./**/lib/cli
