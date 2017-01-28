@@ -12,7 +12,7 @@ description: |
 
 parts:
   indicator-qt4:
-    source: lp:~3v1n0/sni-qt/use-xdg-runtime-dir
+    source: lp:sni-qt
     plugin: cmake
     build-packages:
       - libdbusmenu-qt-dev
@@ -22,7 +22,7 @@ parts:
 
 
   indicator-qt5:
-    source: lp:~3v1n0/appmenu-qt5/use-xdg-runtime-dir
+    source: lp:appmenu-qt5
     plugin: qmake
     qt-version: qt5
     build-packages:
