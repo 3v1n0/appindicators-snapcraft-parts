@@ -12,6 +12,28 @@ description: |
 
 parts:
   indicator-qt4:
+    plugin: nil
+    stage-packages:
+      - sni-qt
+
+  indicator-qt5:
+    plugin: nil
+    stage-packages:
+      - appmenu-qt5
+
+  indicator-gtk2:
+    plugin: nil
+    stage-packages:
+      - libappindicator1
+
+  indicator-gtk3:
+    plugin: nil
+    stage-packages:
+      - libappindicator3-1
+
+  # Legacy parts that are built from sources
+
+  indicator-qt4-from-src:
     source: lp:sni-qt
     plugin: cmake
     build-packages:
@@ -21,7 +43,7 @@ parts:
       - qt4-qmake
 
 
-  indicator-qt5:
+  indicator-qt5-from-src:
     source: lp:appmenu-qt5
     plugin: qmake
     qt-version: qt5
@@ -42,7 +64,7 @@ parts:
       - qtbase5-private-dev
 
 
-  indicator-gtk2:
+  indicator-gtk2-from-src:
     plugin: autotools
     source: lp:libappindicator
     build-packages:
@@ -85,7 +107,7 @@ parts:
       - ./**/lib/mono
 
 
-  indicator-gtk3:
+  indicator-gtk3-from-src:
     source: lp:libappindicator
     plugin: autotools
     build-packages:
