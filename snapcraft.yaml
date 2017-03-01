@@ -1,6 +1,8 @@
 name: appindicators-parts
 version: 0.5
+grade: stable
 confinement: strict
+summary: Snapcraft parts to support app-indicators in desktops
 description: |
   Parts to show app-indicators for gtk2, gtk3, qt4 and qt5.
   .
